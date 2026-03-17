@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from app.database import get_db
-from app.model.pagamentos import PagamentoModel
+from app.model.pagamento import PagamentoModel
 from app.schema.pagamentos import PagamentoSchema
 
 pagamento = APIRouter()
@@ -18,7 +18,7 @@ async def criar_pagamento(dados: PagamentoSchema, db: Session = Depends(get_db))
 async def listar_pagamento(db: Session = Depends(get_db)):
     return db.query(PagamentoModel).all()
 
-@pagamento.delete("/pagamento/{id}/delete")
+@pagamento.delete("/{id}/delete")
 async def deletar_pagamento(id: int, db: Session = Depends(get_db)):
     pagamento_encontrado = db.query(PagamentoModel).filter(PagamentoModel.id_pagamento == id).first()
     

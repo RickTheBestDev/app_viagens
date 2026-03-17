@@ -4,7 +4,7 @@ from datetime import datetime
 from decimal import Decimal
 
 class CorridaSchema(BaseModel):
-    id_corrida: Optional[int] = None
+
     id_passageiro: int
     id_motorista: int
     id_servico: int

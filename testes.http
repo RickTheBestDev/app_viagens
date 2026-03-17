@@ -1,0 +1,81 @@
+### Variáveis de amiente
+
+@base_url = http://127.0.0.1:8000
+
+## Teste de conexão com a API
+
+GET {{base_url}}/ HTTP/1.1
+Accept: application/json
+
+### Criação de uma série
+###-----------Avaliação----------------------------------------###
+POST {{base_url}}/avaliacoes HTTP/1.1
+Content-Type: application/json
+
+{
+   "nota_passageiro": 7,
+   "nota_motorista": 5,
+   "datahora_limite": "2008-10-10 10:10:10"
+}
+###
+GET {{base_url}}/avaliacoes HTTP/1.1
+Accept: application/json
+
+###
+PUT {{base_url}}/avaliacoes/8/update HTTP/1.1
+Content-Type: application/json
+
+{
+   "nota_passageiro": 7,
+   "nota_motorista": 5,
+   "datahora_limite": "2009-10-10T10:10:10"
+}
+###
+
+DELETE {{base_url}}/4/delete HTTP/1.1
+Accept: application/json
+
+###----------------------------------------###
+
+
+
+
+
+
+
+POST {{base_url}}/modelo_veiculo HTTP/1.1
+Content-Type: application/json
+
+{
+   "nome_modelo": "corola",
+   "cor": "vermelho",
+   "fabricante": "toyota",
+   "ano": "2024",
+   "capacidade": "4",
+   "propriedade": "Alugado",
+    "id_combustivel":1
+}
+
+###
+DELETE {{base_url}}/modelo_veiculo/1/delete HTTP/1.1
+Accept: application/json
+###
+
+
+POST {{base_url}}/veiculo HTTP/1.1
+Content-Type: application/json
+
+{
+   "placa": "ABC1234",
+   "id_modelo": 2,
+   "tem_seguro": 1,
+   "id_classe": 2
+}
+
+
+
+###
+   placa: str
+    id_modelo: int
+    tem_seguro: int
+    id_classe: int
