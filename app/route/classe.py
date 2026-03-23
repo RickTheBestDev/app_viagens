@@ -33,7 +33,7 @@ async def deletar_classe(id: int, db: Session = Depends(get_db)):
     return {"classe deletada com sucesso"}
 
 @classe.put("/{id}")
-async def atualizar_classe(id: int, dados: ClasseSchema = Depends(), db: Session = Depends(get_db)):
+async def atualizar_classe(id: int, dados: ClasseSchema, db: Session = Depends(get_db)):
     classe_encontrada = db.query(ClasseModel).filter(ClasseModel.id_classe == id).first()
 
     if not classe_encontrada:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      

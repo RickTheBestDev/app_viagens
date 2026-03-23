@@ -32,7 +32,7 @@ async def deletar_pagamento(id: int, db: Session = Depends(get_db)):
     return {"pagamento deletado com sucesso"}
 
 @pagamento.put("/{id}")
-async def atualizar_pagamento(id: int, dados: PagamentoSchema = Depends(), db: Session = Depends(get_db)):
+async def atualizar_pagamento(id: int, dados: PagamentoSchema, db: Session = Depends(get_db)):
     pagamento_encontrado = db.query(PagamentoModel).filter(PagamentoModel.id_pagamento == id).first()
 
     if not pagamento_encontrado:

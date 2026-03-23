@@ -33,7 +33,7 @@ async def deletar_metodo_pagamento(id: int, db: Session = Depends(get_db)):
     return {"metodo de pagamento deletado com sucesso"}
 
 @metodo_pagamento.put("/{id}")
-async def atualizar_metodo_pagamento(id: int, dados: MetodoPagamentoSchema = Depends(), db: Session = Depends(get_db)):
+async def atualizar_metodo_pagamento(id: int, dados: MetodoPagamentoSchema, db: Session = Depends(get_db)):
     metodo_encontrado = db.query(MetodoPagamentoModel).filter(MetodoPagamentoModel.id_metodo_pagamento == id).first()
 
     if not metodo_encontrado:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      

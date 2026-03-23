@@ -30,7 +30,7 @@ async def deletar_usuario(id: int, db: Session = Depends(get_db)):
     return {"usuario deletado com sucesso"}
 
 @usuario.put("/{id}")
-async def atualizar_usuario(id: int, dados: UsuarioSchema = Depends(), db: Session = Depends(get_db)):
+async def atualizar_usuario(id: int, dados: UsuarioSchema, db: Session = Depends(get_db)):
     usuario_encontrado = db.query(UsuarioModel).filter(UsuarioModel.id_usuario == id).first()
 
     if not usuario_encontrado:

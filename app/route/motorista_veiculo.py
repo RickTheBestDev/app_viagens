@@ -33,7 +33,7 @@ async def deletar_motorista_veiculo(id_motorista: int, id_veiculo: int, db: Sess
     return {"registro deletado com sucesso"}
 
 @motorista_veiculo.put("/{id_motorista}/{id_veiculo}")
-async def atualizar_motorista_veiculo(id_motorista: int, id_veiculo: int, dados: MotoristaVeiculoSchema = Depends(), db: Session = Depends(get_db)):
+async def atualizar_motorista_veiculo(id_motorista: int, id_veiculo: int, dados: MotoristaVeiculoSchema, db: Session = Depends(get_db)):
     registro_encontrado = db.query(MotoristaVeiculoModel).filter(
         MotoristaVeiculoModel.id_motorista == id_motorista,
         MotoristaVeiculoModel.id_veiculo == id_veiculo

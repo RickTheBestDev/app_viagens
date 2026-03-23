@@ -30,7 +30,7 @@ async def deletar_veiculo(id: int, db: Session = Depends(get_db)):
     return {"veiculo deletado com sucesso"}
 
 @veiculo.put("/{id}")
-async def atualizar_veiculo(id: int, dados: VeiculoSchema = Depends(), db: Session = Depends(get_db)):
+async def atualizar_veiculo(id: int, dados: VeiculoSchema, db: Session = Depends(get_db)):
     veiculo_encontrado = db.query(VeiculoModel).filter(VeiculoModel.id_veiculo == id).first()
 
     if not veiculo_encontrado:

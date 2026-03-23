@@ -33,7 +33,7 @@ async def deletar_servico(id: int, db: Session = Depends(get_db)):
     return {"servico deletado com sucesso"}
 
 @servico.put("/{id}")
-async def atualizar_servico(id: int, dados: ServicoSchema = Depends(), db: Session = Depends(get_db)):
+async def atualizar_servico(id: int, dados: ServicoSchema, db: Session = Depends(get_db)):
     servico_encontrado = db.query(ServicoModel).filter(ServicoModel.id_servico == id).first()
 
     if not servico_encontrado:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      

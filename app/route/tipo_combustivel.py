@@ -33,7 +33,7 @@ async def deletar_tipo_combustivel(id: int, db: Session = Depends(get_db)):
     return {"tipo de combustivel deletado com sucesso"}
 
 @tipo_combustivel.put("/{id}")
-async def atualizar_tipo_combustivel(id: int, dados: TipoCombustivelSchema = Depends(), db: Session = Depends(get_db)):
+async def atualizar_tipo_combustivel(id: int, dados: TipoCombustivelSchema, db: Session = Depends(get_db)):
     combustivel_encontrado = db.query(TipoCombustivelModel).filter(TipoCombustivelModel.id_combustivel == id).first()
 
     if not combustivel_encontrado:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      

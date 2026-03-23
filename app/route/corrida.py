@@ -30,7 +30,7 @@ async def deletar_corrida(id: int, db: Session = Depends(get_db)):
     return {"corrida deletada com sucesso"}
 
 @corrida.put("/{id}")
-async def atualizar_corrida(id: int, dados: CorridaSchema = Depends(), db: Session = Depends(get_db)):
+async def atualizar_corrida(id: int, dados: CorridaSchema, db: Session = Depends(get_db)):
     corrida_encontrada = db.query(CorridaModel).filter(CorridaModel.id_corrida == id).first()
 
     if not corrida_encontrada:

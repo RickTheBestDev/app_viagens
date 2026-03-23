@@ -30,7 +30,7 @@ async def deletar_motorista(id: int, db: Session = Depends(get_db)):
     return {"motorista deletado com sucesso"}
 
 @motorista.put("/{id}")
-async def atualizar_motorista(id: int, dados: MotoristaSchema = Depends(), db: Session = Depends(get_db)):
+async def atualizar_motorista(id: int, dados: MotoristaSchema, db: Session = Depends(get_db)):
     motorista_encontrado = db.query(MotoristaModel).filter(MotoristaModel.id_motorista == id).first()
 
     if not motorista_encontrado:
