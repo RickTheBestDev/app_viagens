@@ -33,7 +33,7 @@ async def deletar_avaliacao(id: int, db: Session = Depends(get_db)):
     return {"avaliacao deletada com sucesso"}
 
 @avaliacao.put("/{id}/update")
-async def atualizar_avaliacao(id: int, dados: AvaliacaoSchema = Depends(), db: Session = Depends(get_db)):
+async def atualizar_avaliacao(id: int, dados: AvaliacaoSchema, db: Session = Depends(get_db)):
     avaliacao_encontrada = db.query(AvaliacaoModel).filter(AvaliacaoModel.id_avaliacao == id).first()
 
     if not avaliacao_encontrada:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
